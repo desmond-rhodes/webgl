@@ -1,9 +1,38 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>GitHub Pages</title>
+		<style type="text/css">
+			canvas {
+				background: blue;
+			}
+		</style>
+
+		<script type="text/javascript" src="https://www.khronos.org/registry/webgl/sdk/demos/common/webgl-utils.js"></script>
+
+		<script type="text/javascript">
+			var canvas;
+			var gl;
+
+			window.onload = init;
+
+			function init() {
+				canvas = document.getElementById("gl-canvas");
+
+				gl = WebGLUtils.setupWebGL(canvas);
+				if (!gl)
+					alert("Webgl isn't available.");
+
+				gl.viewport(0, 0, canvas.width, canvas.height);
+				gl.clearColor(1.0, 0.0, 0.0, 1.0);
+				gl.clear(gl.COLOR_BUFFER_BIT);
+			}
+		</script>
+
+		<title>WebGL</title>
 	</head>
 	<body>
-		<p>Hello, world!</p>
+		<canvas id="gl-canvas" width="512" height="512">
+			Oops... your browser doesn't support HTML5's Canvas elements!
+		</canvas>
 	</body>
 </html>
